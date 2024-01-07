@@ -5,7 +5,6 @@ import logging
 import sys
 
 logging.basicConfig(level=logging.INFO)
-logging.info('This is an info message')
 
 
 logging.info("Version 2 application started")
