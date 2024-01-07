@@ -5,6 +5,7 @@ FROM python:3.9
 WORKDIR /app  
 
 
+RUN pip install google-cloud-logging
 # Copy all application files
 COPY . .  
 
