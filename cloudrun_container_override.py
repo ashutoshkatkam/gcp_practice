@@ -6,11 +6,11 @@ def oveeride_sample_run_job(timeout_seconds):
 
     # Initialize request argument(s)
     request = run_v2.RunJobRequest(
-        name="overrides_sample_job",
-        overrides = {
-    "env_vars": [{"name": "ENV_1", "value": "Beta-1"}],
-    "command": ["python", "version1.py", "--filename", "image_1.jpeg"],
-    "task_timeout": str(timeout_seconds) + "s"
+        name="projects/{project}/locations/us-central1/jobs/overrides_sample",
+        overrides = {"container_overrides":[{"env": [{"name": "ENV_1", "value": "Beta-1"}]}],
+                    "args": ["version1.py", "--filename=image_1.jpeg"],
+                    "timeout": str(timeout_seconds) + "s",
+                    "task_count" : 1
     }
     )
 

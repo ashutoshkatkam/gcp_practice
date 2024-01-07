@@ -5,29 +5,21 @@ from google.cloud import logging
 import argparse
 
 # Instantiates a client
-logging_client = logging.Client()
+client = logging.Client(project="my-project")
+logger = client.logger(name="my_app1_logs")
 
-# The name of the log to write to
-log_name = "myapp1-logs"
-# Selects the log to write to
-logger = logging_client.logger(log_name)
+logger.log("Version 1 application started",severity="INFO")
 
 parser = argparse.ArgumentParser(description="Read and print the file name")
 parser.add_argument("filename", help="The name of the file to read.")
 args = parser.parse_args()
 
 # Display the file name passed to the code
-logger.info("Passed filename is "+ args.filename)
+logger.log("Passed filename is "+ args.filename,severity="INFO")
 
-# The data to log
-text = "log from version_1"
-
-# Writes the log entry
-logger.info(text)
 
 # Reading the passed environemnt variable of the container.
-env_1 = os.environ.get('ENV_1')
+env = os.environ.get('ENV_1')
 
 # Logging the environment variable of the container.
-logger.info("Environment variable passed for ENV_1 is" + env_1)
-
+logger.log("Environment variable passed for ENV_1 is " + env,severity="INFO")
