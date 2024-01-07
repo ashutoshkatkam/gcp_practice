@@ -6,8 +6,8 @@ def overide_sample_run_job(timeout_seconds):
 
     # Initialize request argument(s)
     request = run_v2.RunJobRequest(
-        name="projects/user-mcytqvjmikuk/locations/us-central1/jobs/overrides-v1",
-        overrides = {"container_overrides":[{"args": ["version1.py", "image_1.jpeg"],"env": [{"name": "ENV_1", "value": "Beta-1"}],"clear_args":False}],
+        name="projects/user-javvrqxepnkq/locations/us-central1/jobs/overrides-v1",
+        overrides = {"container_overrides":[{"args": ["version1.py", "image_1.jpeg"],"env": [{"name": "ENV", "value": "Beta-1"}]}],
                     "timeout": str(timeout_seconds) + "s",
                     "task_count" : 1
     }

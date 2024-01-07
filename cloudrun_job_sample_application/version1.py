@@ -23,7 +23,7 @@ logging.info("Passed filename is "+ sys.argv[1])
 
 
 # Reading the passed environemnt variable of the container.
-env = os.environ.get('ENV_1')
+env = os.environ.get('ENV')
 
 # Logging the environment variable of the container.
-logging.info("Environment variable passed for ENV_1 is " + env)
+logging.info("Environment variable passed for ENV is " + env)

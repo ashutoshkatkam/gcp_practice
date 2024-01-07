@@ -1,25 +1,21 @@
 # This is the version 2 code
 
 import os
-from google.cloud import logging
-import argparse
+import logging
+import sys
 
-# Instantiates a client
-client = logging.Client(project="my-project")
-logger = client.logger(name="my_app1_logs")
+logging.basicConfig(level=logging.INFO)
+logging.info('This is an info message')
 
-logger.log("Version 2 application started",severity="INFO")
 
-parser = argparse.ArgumentParser(description="Read and print the file name")
-parser.add_argument("filename", help="The name of the file to read.")
-args = parser.parse_args()
+logging.info("Version 2 application started")
 
 # Display the file name passed to the code
-logger.log("Passed filename is "+ args.filename,severity="INFO")
+logging.info("Passed filename is "+ sys.argv[1])
 
 
 # Reading the passed environemnt variable of the container.
-env = os.environ.get('ENV_2')
+env = os.environ.get('ENV')
 
 # Logging the environment variable of the container.
-logger.log("Environment variable passed for ENV_2 is " + env,severity="INFO")
+logging.info("Environment variable passed for ENV is " + env)
